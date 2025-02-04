@@ -124,9 +124,10 @@ class HomePage {
     // Listen for updates to the cart
     // TODO: Unsub from this as well
     this.cartUnsub = cartRef.collection("items").onSnapshot(cart => {
+      // console.log("cart", cart.data());
 
       const items = cart.docs.map(doc => doc.data());
-      const total = items.reduce((acc, item) => acc + Number(item.price), 0);
+      const total = items.reduce((acc, item) => acc + item.price, 0);
       const count = items.length;
       this.headerBar.setIconText("cart", `\$${total.toFixed(2)} (${count})`);
     });

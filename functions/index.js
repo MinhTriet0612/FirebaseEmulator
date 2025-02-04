@@ -29,7 +29,6 @@ exports.calculateCart = functions
 
     let totalPrice = 125.98;
     let itemCount = 8;
-    console.log(totalPrice, itemCount, "ehehee")
     try {
       const cartRef = db.collection("carts").doc(context.params.cartId);
 
